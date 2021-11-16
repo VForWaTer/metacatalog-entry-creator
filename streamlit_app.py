@@ -286,7 +286,7 @@ elif edit_phase == 'finishing':
         \rimport json
         \rsession = api.connect_database()
         \rjson_content = json.loads(\"\"\"{json.dumps(data)}\"\"\")\
-        \rentry = Entry.from_json(json_content, session=session)
+        \rentry = Entry.from_dict(json_content, session=session)
         """
         st.info("The `Entry.from_json` is still under development and might not yet be available.")
         st.code(code)

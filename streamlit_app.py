@@ -234,7 +234,7 @@ elif edit_phase == 'main':
         # handle author
         _author = [a for a in AUTHOR if a['label']==author_label][0]
         if 'id' in _author:
-            data['author'] = _author['id']
+            data['author'] = {'id': _author['id']}
         else:
             data['author'] = {k: v for k,v in _author.items() if k != 'label'}
         
@@ -251,7 +251,7 @@ elif edit_phase == 'main':
         # handle variable
         _variable = [v for v in VARIABLE if v['label']==variable_label][0]
         if 'id' in _variable:
-            data['variable'] = _variable['id']
+            data['variable'] = {'id': _variable['id']}
         else:
             data['variable'] = {k: v for k,v in _variable.items() if k != 'label'}
         

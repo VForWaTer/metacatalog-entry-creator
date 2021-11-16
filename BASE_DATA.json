@@ -135,7 +135,7 @@
             "label": "Weight [m]"
         }
     ],
-    "units": [
+    "unit": [
         {
             "id": 1,
             "label": "second [s]"

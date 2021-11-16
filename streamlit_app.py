@@ -227,7 +227,7 @@ elif edit_phase == 'main':
             external_id=external_id,
             location=f'SRID=4326;POINT ({lon} {lat})',
             embargo=embargo,
-            license=license_id,
+            license={'id': license_id},
             keywords=keywords
         )
 
@@ -282,9 +282,10 @@ elif edit_phase == 'finishing':
         preview.json(data)
     elif fmt == 'Python code':
         code = f"""from metacatalog import api\
-        \rfrom metacatalog.models import Entry
+        \rfrom metacatalog.models import Entry\
+        \rimport json
         \rsession = api.connect_database()
-        \rjson_content = \"\"\"{json.dumps(data)}\"\"\"\
+        \rjson_content = json.loads(\"\"\"{json.dumps(data)}\"\"\")\
         \rentry = Entry.from_json(json_content, session=session)
         """
         st.info("The `Entry.from_json` is still under development and might not yet be available.")
